@@ -36,68 +36,63 @@ session_start();
   </head>
   <body>
 
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Entre na sua Conta</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                              <label for="exampleInputPassword1">IDENTIFICAÇÃO</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="digite o RA">
-                            </div>
-          
-                            <button type="submit" class="btn btn-primary">Entrar na Conta</button>
-                            <small id="emailHelp" class="form-text text-muted">esqueceu o RA? <a href="">entre aqui</a></small>
-                        </form>
-                    </div>
-          
-                  </div>
-                </div>
-              </div>
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3 box-shadow">
+    <!-- escolhe o background -->
+    <a href="index.php" class="navbar-brand">TECHLANCHE</a>
+    <!-- cria o botão lateral responsivo -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top py-3 box-shadow">  <!-- escolhe o background -->
-        <a href="index.html" class="navbar-brand">TECHLANCHE</a>
-        <!-- cria o botão lateral responsivo -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <!-- define oq vai ter no header e como vai ser o botao responsivo -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-  
-              <!-- cria o botão dropdown toogle para abrir varias opçoes -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Produtos</a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="bebidas.html">Bebidas</a>
-                      <a class="dropdown-item" href="salgados.html">Salgados</a>
-                      <a class="dropdown-item" href="doces.html">Doces</a>
-  
-                  </div>
-              </li>
-  
-              <li class="nav-item">
-                <a class="nav-link" href="contato.html">Contato</a>
-              </li>
-  
-              <li class="nav-item">
-                <a class="nav-link" href="login.html" data-toggle="modal" data-target="#exampleModal" >Login</a>
-              </li>
-  
-              <li class="nav-item">
-                <a class=" ml-md-2 btn btn-outline-primary" href="planos.html">Saiba mais</a>
-              </li>
-          </ul>
-        </div>
-      </nav>
+    <!-- define oq vai ter no header e como vai ser o botao responsivo -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+
+        <!-- cria o botão dropdown toogle para abrir varias opçoes -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Produtos</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="bebidas.php">Bebidas</a>
+            <a class="dropdown-item" href="salgados.php">Salgados</a>
+            <a class="dropdown-item" href="doces.php">Doces</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contato.php">Contato</a>
+        </li>
+
+        <?php
+        if(isset($_SESSION['user_connect'])){
+        ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Olá, <?php echo $_SESSION['nome'];?></a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Perfil</a>
+            <a class="dropdown-item" href="#">Meu Carrinho</a>
+            <a class="dropdown-item" href="php/logout.php">Sair</a>
+          </div>
+        </li>
+        
+        <?php
+        } else {
+        ?>
+          <li class="nav-item">
+          <a class="nav-link" href="php/index.php">Login</a>
+        </li>
+        <?php
+        }
+        ?>
+        
+        <li class="nav-item">
+          <a class=" ml-md-2 btn btn-outline-primary" href="planos.php">Saiba mais</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
       <section class="container text-center" style="padding: 150px 0 50px 0" data-slide="quote">
           <blockquote class="clientes">
